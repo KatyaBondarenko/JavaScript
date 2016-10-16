@@ -1,65 +1,167 @@
-var elemFibonacci = 40;
-var fibonacci;
-var arrEven = [];
-var arrNotEven = [];
-var sum = 0;
-var number = 0;
+// Найти первые 40 чисел Фибоначи.
 
-// Находим последовательность чисел Фибоначчи указанного индексом
+function fibonacciCounter(num) {
 
-function fibonacci(n) {
-    fibonacci = [0, 1];
-    for (var i = 2; i <= n; i++) {
+    var fibonacci = [1, 1];
+
+    for (i = 2; i < num; i++) {
+
         fibonacci[i] = fibonacci[i - 1] + fibonacci[i - 2];
     }
+
     return fibonacci;
+
 }
-fibonacci(elemFibonacci);
+
+console.log(fibonacciCounter(40));
 
 
-// фильтруем четные и нечетные значения массива
+// Преобразовать найденные числа. Если число чётное, то отнимаем 2. Если число нечётное, то отнимаем от него 4.
 
-function getArr(a) {
-    for (var i = 0; i < a.length; i++) {
-        if (a[i] % 2 === 0) {
-            arrEven[i] = a[i] - 2;
-        } else if (a[i] % 2 === 1) {
-            arrNotEven[i] = a[i] - 4;
+function arrayConvert(arr) {
+
+    var length = arr.length;
+
+    for (i = 0; i < length; i++) {
+
+        if (arr[i] % 2 === 0) {
+
+            arr[i] = arr[i] - 2;
+        }
+
+        else {
+
+            arr[i] = arr[i] - 4;
         }
     }
-}
-getArr(fibonacci);
 
-// получаем сумму элементов массива
-
-function getSum(a, b) {
-    sum = a.reduce(function(a, b) {
-        return a + b;
-    });
-    return sum;
+    return arr;
 }
 
-getSum(arrEven);
-getSum(arrNotEven);
+console.log(arrayConvert(fibonacciCounter(40)));
 
-// Получаем кол-во чисел в массиве 
 
-function getArrNumber(a) {
-    number = 0;
-    for (var i = 0; i < a.length; i++) {
-        if (typeof a[i] === 'number') {
-            number++;
-        }
+// Посчитать среднее значение чётных и не четных преобразованных чисел.
+
+var arr = arrayConvert(fibonacciCounter(40));
+
+var evenCount = 0;
+var oddCount = 0;
+
+var reducerEven = function (a, b) {
+
+    var c = 0;
+
+    if (b % 2 === 0) {
+
+        c = b;
+
+        evenCount++;
     }
-    return number;
-}
-getArrNumber(arrEven);
-getArrNumber(arrNotEven);
+    return (a + c);
 
-// Находим среднее значение каждого массива
+};
 
-var averageEven = getSum(arrEven) / getArrNumber(arrEven);
-var averageNotEven = getSum(arrNotEven) / getArrNumber(arrNotEven);
+var initialValue = 0;
 
-console.log(averageEven);
-console.log(averageNotEven);
+var totalEven = arr.reduce(reducerEven, initialValue);
+
+console.log(totalEven);
+
+var reducerOdd = function (a, b) {
+
+    var c = 0;
+
+var reducerEven = function (a, b) {
+
+    var c = 0;
+
+    if (b % 2 === 0) {
+
+        c = b;
+
+        evenCount++;
+    }
+    return (a + c);
+
+};
+
+var initialValue = 0;
+
+var totalEven = arr.reduce(reducerEven, initialValue);
+
+console.log(totalEven);
+
+var reducerOdd = function (a, b) {
+
+    var c = 0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var reducerEven = function (a, b) {
+
+    var c = 0;
+
+    if (b % 2 === 0) {
+
+        c = b;
+
+        evenCount++;
+    }
+    return (a + c);
+
+};
+
+var initialValue = 0;
+
+var totalEven = arr.reduce(reducerEven, initialValue);
+
+console.log(totalEven);
+
+var reducerOdd = function (a, b) {
+
+    var c = 0;
+
+    if (b % 2 !== 0) {
+
+        c = b;
+        oddCount++;
+    }
+    return (a + c);
+};
+
+var initialValue = 0;
+
+var totalOdd = arr.reduce(reducerOdd, initialValue);
+
+console.log(totalOdd);
+
+console.log(totalEven / evenCount);
+console.log(totalOdd / oddCount);
+
+
