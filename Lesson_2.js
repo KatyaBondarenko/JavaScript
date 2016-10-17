@@ -37,15 +37,26 @@ function increment(a){
 
     a++;
 
-    return a;
-
     var currentCount = 1;
 
-    return function() {
+    return (function() {
 
-        return currentCount++;
-    };
+        currentCount++;
+
+        return { value: a, calls: currentCount};
+
+    })();
+
 }
 
+console.log(increment(10));
+console.log(increment(14));
+console.log(increment(55));
 
-console.log(increment(10))
+
+
+
+
+
+
+
