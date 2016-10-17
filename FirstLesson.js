@@ -72,81 +72,6 @@ var reducerOdd = function (a, b) {
 
     var c = 0;
 
-var reducerEven = function (a, b) {
-
-    var c = 0;
-
-    if (b % 2 === 0) {
-
-        c = b;
-
-        evenCount++;
-    }
-    return (a + c);
-
-};
-
-var initialValue = 0;
-
-var totalEven = arr.reduce(reducerEven, initialValue);
-
-console.log(totalEven);
-
-var reducerOdd = function (a, b) {
-
-    var c = 0;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var reducerEven = function (a, b) {
-
-    var c = 0;
-
-    if (b % 2 === 0) {
-
-        c = b;
-
-        evenCount++;
-    }
-    return (a + c);
-
-};
-
-var initialValue = 0;
-
-var totalEven = arr.reduce(reducerEven, initialValue);
-
-console.log(totalEven);
-
-var reducerOdd = function (a, b) {
-
-    var c = 0;
-
     if (b % 2 !== 0) {
 
         c = b;
@@ -161,7 +86,5 @@ var totalOdd = arr.reduce(reducerOdd, initialValue);
 
 console.log(totalOdd);
 
-console.log(totalEven / evenCount);
-console.log(totalOdd / oddCount);
-
-
+console.log(totalEven/evenCount);
+console.log(totalOdd/oddCount);
