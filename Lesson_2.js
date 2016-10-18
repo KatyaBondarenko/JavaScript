@@ -34,9 +34,8 @@ console.log(isPowerOfTwo(14));
 
 
 
-function incrementNum (currentCount){
-
-
+var increment = function(currentCount){
+    
     var currentCount = 0;
 
     return function(a) {
@@ -46,18 +45,14 @@ function incrementNum (currentCount){
         return { value: a, calls: currentCount};
     };
 
+}()
 
-}
 
-var increment = incrementNum();
 
 console.log(increment(10));
 console.log(increment(14));
 console.log(increment(55));
 console.log(increment(43));
-
-
-
 
 
 
