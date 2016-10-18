@@ -33,25 +33,30 @@ console.log(isPowerOfTwo(14));
 // increment(14); // { value: 15, calls: 2}
 
 
-function increment(a){
 
-    a++;
+function incrementNum (currentCount){
 
-    var currentCount = 1;
 
-    return (function() {
+    var currentCount = 0;
+
+    return function(a) {
 
         currentCount++;
-
+        a++;
         return { value: a, calls: currentCount};
+    };
 
-    })();
 
 }
+
+var increment = incrementNum();
 
 console.log(increment(10));
 console.log(increment(14));
 console.log(increment(55));
+console.log(increment(43));
+
+
 
 
 
