@@ -1,0 +1,60 @@
+//1. Написать функцию `isPowerOfTwo`, которая указывает, является ли аргумент степенью двойки.
+  //  Возвращает `true` или `false`. Реализовать с помощью рекурсии. Пример:
+// isPowerOfTwo(1024); // true
+// isPowerOfTwo(1023); // false
+
+
+function isPowerOfTwo(n){
+
+    if (n === 2){
+
+        return true;
+    }
+
+    if (n%2 === 0)
+    {
+        var c  = n/2;
+
+        return isPowerOfTwo(c);
+    }
+    else {
+
+        return false;
+    }
+
+}
+
+console.log(isPowerOfTwo(14));
+console.log(isPowerOfTwo(1024));
+
+
+//2. Написать функцию `increment`, которая возвращает аргумент увеличеный на еденицу и количество вызовов функции.
+// Сделать с помощью замыкания, в глобальной области видимости должна быть только переменная `increment`. Пример:
+// increment(10); // { value: 11, calls: 1}
+// increment(14); // { value: 15, calls: 2}
+
+
+var increment = function(){
+
+    var currentCount = 0;
+
+    return function(a) {
+
+        currentCount++;
+        a++;
+        return { value: a, calls: currentCount};
+    };
+
+}()
+
+console.log(increment(10));
+console.log(increment(14));
+console.log(increment(55));
+console.log(increment(43));
+
+
+
+
+
+
+
