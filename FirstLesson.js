@@ -18,73 +18,73 @@ console.log(fibonacciCounter(40));
 
 // Преобразовать найденные числа. Если число чётное, то отнимаем 2. Если число нечётное, то отнимаем от него 4.
 
-function arrayConvert(arr) {
 
-    var length = arr.length;
 
-    for (i = 0; i < length; i++) {
+var arrayConvert = fibonacciCounter(40).map(function(num){
 
-        if (arr[i] % 2 === 0) {
+    if (num % 2 === 0) {
 
-            arr[i] = arr[i] - 2;
-        }
-
-        else {
-
-            arr[i] = arr[i] - 4;
-        }
+        return num = num - 2;
     }
 
-    return arr;
-}
+    else {
 
-console.log(arrayConvert(fibonacciCounter(40)));
+       return num = num - 4;
+    }
+
+});
+
+console.log(arrayConvert);
 
 
 // Посчитать среднее значение чётных и не четных преобразованных чисел.
 
-var arr = arrayConvert(fibonacciCounter(40));
 
-var evenCount = 0;
-var oddCount = 0;
+var filteredArrayToEven = arrayConvert.filter(function(value){
 
-var reducerEven = function (a, b) {
+    if (value % 2 === 0) {
 
-    var c = 0;
-
-    if (b % 2 === 0) {
-
-        c = b;
-
-        evenCount++;
+        return value;
     }
-    return (a + c);
+
+});
+
+console.log(filteredArrayToEven);
+
+
+var filteredArrayToOdd = arrayConvert.filter(function(value){
+
+    if (value % 2 !== 0) {
+
+        return value;
+    }
+
+});
+
+console.log(filteredArrayToOdd);
+
+
+var arr = arrayConvert;
+
+
+
+var reducer = function (a, b) {
+
+
+    return (a + b);
 
 };
 
-var initialValue = 0;
 
-var totalEven = arr.reduce(reducerEven, initialValue);
 
-console.log(totalEven);
+var totalEven = filteredArrayToEven.reduce(reducer, 0);
 
-var reducerOdd = function (a, b) {
+console.log(filteredArrayToEven.reduce(reducer, 0));
 
-    var c = 0;
+var totalOdd = filteredArrayToOdd.reduce(reducer, 0);
 
-    if (b % 2 !== 0) {
+console.log(filteredArrayToOdd.reduce(reducer, 0));
 
-        c = b;
-        oddCount++;
-    }
-    return (a + c);
-};
 
-var initialValue = 0;
-
-var totalOdd = arr.reduce(reducerOdd, initialValue);
-
-console.log(totalOdd);
-
-console.log(totalEven/evenCount);
-console.log(totalOdd/oddCount);
+console.log(totalEven/filteredArrayToEven.length);
+console.log(totalOdd/filteredArrayToOdd.length);

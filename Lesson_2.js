@@ -17,7 +17,7 @@ function isPowerOfTwo(n){
 
         return isPowerOfTwo(c);
     }
-    if (n%2 !== 0){
+    else {
 
         return false;
     }
@@ -25,6 +25,7 @@ function isPowerOfTwo(n){
 }
 
 console.log(isPowerOfTwo(14));
+console.log(isPowerOfTwo(1024));
 
 
 //2. Написать функцию `increment`, которая возвращает аргумент увеличеный на еденицу и количество вызовов функции.
@@ -33,9 +34,8 @@ console.log(isPowerOfTwo(14));
 // increment(14); // { value: 15, calls: 2}
 
 
+var increment = function(){
 
-var increment = function(currentCount){
-    
     var currentCount = 0;
 
     return function(a) {
@@ -46,8 +46,6 @@ var increment = function(currentCount){
     };
 
 }()
-
-
 
 console.log(increment(10));
 console.log(increment(14));
